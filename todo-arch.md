@@ -1,8 +1,9 @@
-- [] install firefox or chromium
-- [] install paru
-- [] install git
-- [] automount the HDD 
-- [] run hollow knight port
-- [] install docker
-- [] install jenkins
-- [] install gitlab, gitlab-ci, gitlab-runner
+- [x] install firefox or chromium
+- [x] install git
+- [x] automount the HDD
+- [x] install paru
+- [x] run hollow knight port
+- [x] install docker
+- [x] install jenkins
+- [ ] ssh setup between windows machine (wsl) and arch 
+- [ ] install gitlab, gitlab-ci, gitlab-runner
