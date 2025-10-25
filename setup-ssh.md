@@ -14,6 +14,7 @@ sudo nano /etc/systemd/network/50-wired.network
 
 Add:
 
+```
 text
 [Match]
 Name=en*
@@ -22,13 +23,13 @@ Name=en*
 Address=192.168.0.130/24
 Gateway=192.168.0.1
 DNS=192.168.0.1
-
+```
 
 Then restart network:
 
-bash
+```bash
 sudo systemctl restart systemd-networkd
-
+```
 
 Add to Windows Hosts File
 To use archserver hostname in Windows browser:
@@ -39,17 +40,17 @@ Open C:\Windows\System32\drivers\etc\hosts
 
 Add this line:
 
-text
+```
 192.168.0.130 archserver
-
+```
 
 Save the file
 
 Now access from Windows browser:
 
-text
+```
 http://archserver:8080
-
+```
 
 
 ----------
@@ -66,10 +67,10 @@ Verify network connectivity from both WSL and Windows
 2. Name Resolution
 In WSL Ubuntu:
 
-bash
+```bash
 sudo nano /etc/hosts
 Add 192.168.0.130 archserver
-
+```
 
 In Windows (optional but recommended):
 
@@ -77,18 +78,21 @@ Run Notepad as Admin
 
 Edit C:\Windows\System32\drivers\etc\hosts
 
-Add: 192.168.0.130 archserver
+Add: 
+```
+192.168.0.130 archserver
+```
 
 3. SSH Configuration (WSL → Arch)
 Generate SSH keys in WSL:
 
-bash
+```bash
 ssh-keygen -t ed25519 -C "wsl-to-arch"
 ssh-copy-id mahdi@archserver
-
+```
 Create SSH config in WSL:
 
-bash
+```bash
 nano ~/.ssh/config
 text
 Host archserver
@@ -96,16 +100,16 @@ Host archserver
     User mahdi
     Port 22
     IdentityFile ~/.ssh/id_ed25519
-
+```
 
 5. Firewall Configuration on Arch
-bash
+```bash
 #Allow SSH
 sudo ufw allow 22/tcp
 
 #Only allow service ports locally (more secure)
 sudo ufw allow from 192.168.0.0/24 to any port 22
-
+```
 
 ❌ WHAT TO AVOID
 1. Network Anti-Patterns
@@ -142,7 +146,7 @@ WSL Terminal: ssh archserver for management
 Keep it simple - no tunnels needed for basic access
 
 Container Management (from WSL):
-bash
+```bash
 # Connect to Arch server
 ssh archserver
 
@@ -167,24 +171,29 @@ docker inspect cicd-nginx
 
 # Verify port mapping
 ss -tlnp | grep 8080
+```
 🚨 TROUBLESHOOTING
 If Jenkins is inaccessible:
 Check containers are running on Arch:
 
-bash
+```bash
 ssh archserver docker ps
+```
 Test locally on Arch server:
 
-bash
+```bash
 curl http://localhost:8080
+```
 Check Nginx configuration:
 
-bash
+```bash
 ssh archserver docker logs cicd-nginx
+```
 Verify firewall on Arch:
 
-bash
+```bash
 sudo ufw status
+```
 If Windows can't resolve hostname:
 Use IP directly: http://192.168.0.130:8080
 
@@ -193,19 +202,22 @@ Or add archserver to Windows hosts file
 📋 QUICK START COMMANDS
 From Windows CMD/PowerShell:
 
-cmd
+```cmd
 # Test connectivity
 ping 192.168.0.130
 
 # Access Jenkins
 start http://archserver:8080
+```
+
 From WSL:
 
-bash
+```bash
 # SSH to Arch for management
 ssh archserver
 
 # Or with tunnel (if direct access fails)
 ssh -L 8080:localhost:8080 archserver
+```
 Recommendation: Use Method 1 (Direct Nginx Access) for daily use since it's already properly configured with Nginx reverse proxy. Use SSH tunnels only if you need additional security or if direct access isn't working.
 
