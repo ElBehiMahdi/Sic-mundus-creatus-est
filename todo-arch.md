@@ -1,0 +1,8 @@
+- [] install firefox or chromium
+- [] install paru
+- [] install git
+- [] automount the HDD 
+- [] run hollow knight port
+- [] install docker
+- [] install jenkins
+- [] install gitlab, gitlab-ci, gitlab-runner

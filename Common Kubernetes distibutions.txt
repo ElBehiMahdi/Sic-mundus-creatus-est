@@ -1,0 +1,37 @@
+Common Kubernetes distibutions 
+In Cloud : 
+- Amazon Elastic Kuberenetes Services (EKS)
+- Azure Kuberenetes Services (AKS)
+- Google Kubernetes Engine (GKE)
+
+On Premise : 
+- OpenShift 
+- Google Antos
+- Rancher 
+- Canonical Charmed Kubernetes
+
+Minimal(learning)Solutions 
+- Minikube 
+- K3s
+
+Kubernetes Node Roles 
+- The control plane runs Kubernetes core services, kubernetes agents, and no user workloads 
+- The worker plane runs user workloads and kubernetes agents 
+- All nodes are configured with a container runtime(podman containerd,docker docker engine), which is required for running containerized workloads 
+- The kubelet systemd service is responsible for running orchestrated containers as Pods on any node 
+
+L2: Creating a kubernetes cluster with kubeadm
+
+https://github.com/sandervanvugt/cka
+
+Before setting up a cluster with kubeadm, install : a container runtime CRI, the kubernetes tools
+
+Installing a container runtime 
+
+- A container runtime is the componenet that allows you to run containers
+- Kubernetes supports different container runtimes 
+	-containerd
+	-CRI-O
+	-docker engine
+	-Mirantis container runtime
+- Installing a container runtime is not a CKA exam requirement 
