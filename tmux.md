@@ -18,6 +18,6 @@ To start using tmux, type tmux on your terminal. This command launches a tmux se
 - Ctrl+B % ---> do a vertical split to switch between panes Ctrl+B O
 - Ctrl+B !
 - 
-
+https://www.redhat.com/en/blog/introduction-tmux-linux
 https://wiki.archlinux.org/title/Tmux
 
