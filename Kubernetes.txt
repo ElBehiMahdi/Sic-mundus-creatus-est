@@ -37,3 +37,48 @@ Installing a container runtime
 - Installing a container runtime is not a CKA exam requirement 
 
 
+Understanding Network Addon
+
+- to create the software defined pod network, a network add-on is needed 
+- Different network add-ons are provided by kubernetes ecosystem 
+- Kubernetes provdes Container Network Interface CNI, a generic interface that allows different plugins to be used 
+
+Important Network add-ons : Calico, Flannel, Multus and Weave 
+
+How to install a cluster using Kubeadm 
+
+While running "kubeadm init" 
+	preflight 
+	certs
+	kubeconfig 
+	kubelet-start 
+	control-plane 
+	etcd
+	upload-config
+	upload-certs
+	mark-control-plane
+	bootstrap-token
+	kubelet-finalize
+	add-on
+
+	You have a working a kubernetes cluster 
+
+Kubeadm init setup procedure :
+
+- Clone https://github.com/sandervanvugt/cka
+- I need to have a three node environment with three VM's using ubuntu 24 server 
+
+Build a Kubernetes Home Lab from Scratch step-by-step!:
+https://www.youtube.com/watch?v=_WW16Sp8-Jw
+
+
+The Ultimate Homelab Setup for Crushing Kubernetes Certifications
+https://www.youtube.com/watch?v=SuWfFQ_oG2A
+
+
+
+
+install virt manager and kvm to run ubuntu servers : 
+https://www.youtube.com/watch?v=hzyIsb1Mdf0
+
+
