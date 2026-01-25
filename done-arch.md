@@ -1,0 +1,6 @@
+- Installed yay AUR manager 
+- Installed caprine (messenger web app) before it i downloaded electron29-bin 
+- Installed node js v25
+- Deleted it sudo pacman -R caprine && yay -Yc along with node and other unessecary packages
+-  
+-
